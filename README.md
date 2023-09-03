@@ -1,6 +1,6 @@
 # Quran And Azkar قرآن وأذكار
 
-<img align="center" width="80%" marginRight="auto" marginLeft="auto" src="./src/assets/main-page.png">
+<img align="center" width="80%" src="./src/assets/main-page.png">
 
 ## What is Quran And Azkar?
 
@@ -16,7 +16,7 @@ I used Vite + react, tailwind for styling, redux to manage the global state, rea
 
 ### Quran Kareem
 
-<img align="center" width="80%" marginRight="auto" marginLeft="auto" src="./src/assets/quran-kareem.jpg">
+<img align="center" width="80%" src="./src/assets/quran.png">
 
 This section contain all of sorahs from api and there is the tafsir too .
 
