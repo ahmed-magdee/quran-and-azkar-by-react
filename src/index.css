@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-[22px] sm:text-3xl font-bold;
+  }
+  h2 {
+    @apply text-xl sm:text-2xl font-bold;
+  }
+  .container {
+    @apply mx-auto;
+  }
+}
+
+nav a.active {
+  @apply text-blue-200 before:w-full;
+}
+nav .icon-links a.active {
+  @apply pr-5;
+}
+
+.main-clip-path {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-300 rounded-[60px] hover:bg-blue-500;
+}
+::-webkit-scrollbar-track {
+  @apply bg-blue-50;
+}
+li.active {
+  @apply scale-[1.1] bg-blue-200;
+}
+a.active-a {
+  @apply -translate-y-[20px] shadow-links-sorah-shadow-hover;
+}
+.book-mark {
+  @apply -translate-y-1 shadow-links-aya-hover bg-blue-200;
+}
