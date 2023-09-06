@@ -140,11 +140,14 @@ function PrayTime() {
           value={selectValue}
           onChange={handleSelect}
         >
-          {rightLocation.map((one) => (
-            <option value={one} key={one}>
-              {one}
-            </option>
-          ))}
+          {rightLocation.map((one) => {
+            const newOne = one.split(" ").join("_");
+            return (
+              <option value={newOne} key={one}>
+                {one}
+              </option>
+            );
+          })}
         </select>
       </p>
     </div>
