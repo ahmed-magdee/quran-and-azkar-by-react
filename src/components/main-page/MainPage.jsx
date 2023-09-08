@@ -19,6 +19,7 @@ function MainPage() {
   });
   const [animate, setAnimate] = useState(false);
   const buttonRef = useRef();
+  const [spaceInput, setSpaceInput] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,39 +31,45 @@ function MainPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAnimate(true);
-    buttonRef.current.classList.add("pointer-events-none");
-    emailjs
-      .send(
-        "service_rescg0l",
-        "template_r8enati",
-        {
-          from_name: form.name,
-          to_name: "Ahmed",
-          from_email: form.email,
-          to_email: "am247249@gmail.com",
-          message: form.message,
-        },
-        "W0zUy-XYg9x_ktpb3"
-      )
-      .then(
-        () => {
-          setAnimate(false);
-          alert("تم إرسال رسالتك بشكل صحيح !");
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-          buttonRef.current.classList.remove("pointer-events-none");
-        },
-        (error) => {
-          setAnimate(false);
-          alert("حدث مشكلة حاول في وقت لاحق");
-          console.log(error);
-          buttonRef.current.classList.remove("pointer-events-none");
-        }
-      );
+
+    if (form.name && form.email && form.message) {
+      buttonRef.current.classList.add("pointer-events-none");
+      setAnimate(true);
+      emailjs
+        .send(
+          "service_rescg0l",
+          "template_r8enati",
+          {
+            from_name: form.name,
+            to_name: "Ahmed",
+            from_email: form.email,
+            to_email: "am247249@gmail.com",
+            message: form.message,
+          },
+          "W0zUy-XYg9x_ktpb3"
+        )
+        .then(
+          () => {
+            setAnimate(false);
+            setSpaceInput(false);
+            alert("تم إرسال رسالتك بشكل صحيح !");
+            setForm({
+              name: "",
+              email: "",
+              message: "",
+            });
+            buttonRef.current.classList.remove("pointer-events-none");
+          },
+          (error) => {
+            setAnimate(false);
+            alert("حدث مشكلة حاول في وقت لاحق");
+            console.log(error);
+            buttonRef.current.classList.remove("pointer-events-none");
+          }
+        );
+    } else {
+      setSpaceInput(true);
+    }
   };
 
   return (
@@ -135,6 +142,9 @@ function MainPage() {
                     onChange={handleChange}
                   />
                 </div>
+                {spaceInput && (
+                  <p className="mb-4 text-red-600">*يرجي ملئ الفراغات</p>
+                )}
                 <button
                   type="submit"
                   className={allStyles.button}
