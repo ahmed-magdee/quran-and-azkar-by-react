@@ -130,7 +130,7 @@ function PrayTime() {
 
   const selectDivs = (
     <div className="mt-5 text-blue-500 text-base sm:text-lg">
-      <p>هذه المواقيت طبقا لمحافظة {selectValue}</p>
+      <p>هذه المواقيت طبقا لمحافظة {selectValue.split("_").join(" ")}</p>
       <p className="mt-[15px] outline-none" id="mohafaza">
         أختر محافظتك الصحيحة{" "}
         <select
