@@ -7,8 +7,8 @@ function TafsirAllSorah() {
   const path = window.location.hash;
 
   useEffect(() => {
-    (document.title = "التفسير الميسر"), [];
-  });
+    document.title = "التفسير الميسر";
+  }, []);
 
   return (
     <div className="bg-[url('./assets/quran-side.png')] bg-cover bg-fixed min-h-[calc(100vh-68px)] bg-blue-100">

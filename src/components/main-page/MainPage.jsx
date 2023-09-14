@@ -6,7 +6,7 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { allStyles } from "../constants/styles/allStyles";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import ScrollToTop from "../ScrollToTop";
 import MainContainer from "../constants/MainContainer";
@@ -20,6 +20,10 @@ function MainPage() {
   const [animate, setAnimate] = useState(false);
   const buttonRef = useRef();
   const [spaceInput, setSpaceInput] = useState(false);
+
+  useEffect(() => {
+    document.title = "قرآن وأذكار";
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
