@@ -1,116 +1,85 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./src/**/*.{jxs,tsx}", "./index.html"],
   theme: {
     extend: {
       container: {
         padding: "15px",
       },
       fontFamily: {
-        "noto-normal": "'Noto Naskh Arabic', serif",
-        "noto-reqaa": "'Noto Nastaliq Urdu', serif",
+        "noto-arabic": "'Noto Naskh Arabic', serif",
+        "noto-urdo": "'Noto Nastaliq Urdu', serif",
         cairo: "'Cairo', sans-serif",
       },
-      boxShadow: {
-        "section-shadow":
-          "-4px -4px 4px 0px inset #8d8dc2, 4px 4px 4px 0 inset #8d8dc2",
-        "form-shadow": "0px 0px 15px 0px #5e5ef6",
-        "links-sorah-shadow":
-          "0px 0px 5px 0px #2563ea inset, 0px 0px 4px 0px #2563ea",
-        "links-sorah-shadow-hover":
-          "0px 0px 15px 0px #2563eb inset, 0px 10px 15px 0px #2563eb",
-        "links-aya-hover":
-          "0px 0px 5px 0px #2563eb inset, 0px 5px 5px 0px #2563eb",
-        "popup-shadow": "0px 0px 15px 0px #2563eb;",
-        "header-shadow": "0px_0px_5px_0px_#2563eb",
-      },
-      keyframes: {
-        "hide-and-shaw": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(-200px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
-        },
-        loading: {
-          "0%": { opacity: "1" },
-          "100%": { opacity: "0" },
-        },
-        "change-color": {
-          "0%": { backgroundColor: "#dbeafe", color: "#1e40af" },
-          "100%": { backgroundColor: "#1e40af", color: "#dbeafe" },
-        },
-        "before-animation": {
-          "50%": {
-            left: "50%",
-            width: "10px",
-            height: "10px",
-            borderRadius: "0",
-          },
-          "100%": {
-            width: "50%",
-            height: "100%",
-            left: "50%",
-            borderTopRightRadius: "12px",
-            borderBottomRightRadius: "12px",
-            borderTopLeftRadius: "0",
-            borderBottomLeftRadius: "0",
-          },
-        },
-        "after-animation": {
-          "50%": {
-            right: "50%",
-            width: "10px",
-            height: "10px",
-            borderRadius: "0",
-          },
-          "100%": {
-            width: "50%",
-            right: "50%",
-            height: "100%",
-            borderTopRightRadius: "0",
-            borderBottomRightRadius: "0",
-            borderTopLeftRadius: "12px",
-            borderBottomLeftRadius: "12px",
-          },
-        },
-        "time-animation-before": {
-          from: {
-            left: "50%",
-            top: "50%",
-            width: "0%",
-            height: "0%",
-          },
-          to: {
-            left: "50%",
-            top: "50%",
-            width: "100%",
-            height: "100%",
-          },
-        },
-        "time-animation-li": {
-          from: {
-            // transform: "translateY(-10px)",
-            transform: "scale(1)",
-          },
-          to: {
-            // transform: "translateY(10px)",
-            transform: "scale(1.2)",
-          },
-        },
+      colors: {
+        "green-header": "#004d40",
+        "green-second": "#80CBC4",
+        "green-thired": "#80CBC4",
+        "green-fourth": "#004D40",
+        "green-fifth": "#E0F2F1",
+        "green-footer": "#00685c",
+        "paige-color": "#f1f5f9",
       },
       animation: {
-        "hide-and-show": "hide-and-shaw 1.5s ease-in-out",
-        loading: "loading 1.5s linear infinite",
-        "color-change": "change-color 1s ease-in-out infinite alternate",
-        "before-animation": "before-animation 1s linear forwards",
-        "after-animation": "after-animation 1s linear forwards",
-        "time-animation-li":
-          "time-animation-li 1s ease-in-out infinite alternate",
-        "time-animation-before": "time-animation-before 1s linear infinite",
+        "top-to-bottom": "1.5s top-bottom ease-in-out",
+        show: "2.25s opacity ease-in-out infinite",
+        scale: "1.5s scale ease-in-out",
+        img: "1.5s img ease-in-out infinite alternate",
+        opacity: ".8s animate-popup ease-in-out",
+      },
+      keyframes: {
+        "top-bottom": {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(-130px)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateY(0px)",
+          },
+        },
+        opacity: {
+          "0%": {
+            opacity: 1,
+          },
+          "100%": {
+            opacity: 0,
+          },
+        },
+        scale: {
+          "0%": {
+            transform: "scale(0)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+        img: {
+          "0%": {
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            transform: "translateY(10px)",
+          },
+        },
+        "animate-popup": {
+          "0%": {
+            opacity: 1,
+            transform: "translate(50%, 35px)",
+          },
+          "100%": {
+            opacity: 0,
+            transform: "translate(50%, 20px)",
+          },
+        },
+      },
+      boxShadow: {
+        "box-shadow": "0px 0px 20px 0px #009688 inset",
+        "header-shadow": "0px 0px 20px 0px #009688",
+        "box-sorah": "0px 0px 20px 0px #009688 inset, 0px 0px 10px 0px #009688",
+        "box-sorah-hover":
+          "0px 0px 30px 0px #009688 inset, 0px 10px 20px 0px #009688",
+        "sorah-header": "0px 2px 15px 0px #ccc",
       },
     },
   },

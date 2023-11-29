@@ -1,45 +1,27 @@
-# Quran And Azkar قرآن وأذكار
+# React + TypeScript + Vite
 
-<img align="center" width="80%" src="./src/assets/main-page.png">
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## What is Quran And Azkar?
+Currently, two official plugins are available:
 
-This is My first project with react, react-router-dom, redux, react-redux, axios, Emailjs and tailwind, This website contains the Noble Qur’an, interpretation of the Qur’an, Hadith, morning and evening remembrances, supplications of the Prophets from the Qur’an, praises, and much more. There is also a personal page where you can obtain guidance on reading the Qur’an and know where you left off.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## About Me
+## Expanding the ESLint configuration
 
-I'm Ahmed Magdy I'm Fronend Developer.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## What did i use to build this application?
+- Configure the top-level `parserOptions` property like this:
 
-I used Vite + react, tailwind for styling, redux to manage the global state, react-redux to connect the app with the redux store, i used emailjs with the form in main page, finally i used axios to fetch data.
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
-### Quran Kareem
-
-<img align="center" width="80%" src="./src/assets/quran.png">
-
-This section contain all of sorahs from api and there is the tafsir too .
-
-### Tafsir Section
-
-In this section there is the tafsir if you want read Quran with tafsir.
-
-### Hadeeth Shareef
-
-<img align="center" width="80%" marginRight="auto" marginLeft="auto" src="./src/assets/hadeeth-shareef.png">
-
-Here there is hadeeth shareef section there is more than 4000 hadeeth you will find what you whant here inshaa allah.
-
-### Azkar
-
-<img align="center" width="80%" marginRight="auto" marginLeft="auto" src="./src/assets/azkar.png">
-
-Here there are many supplications, including morning and evening supplications, supplications from the Quran, supplications of the prophets, and many many supplications.
-
-## Pray Timing
-
-<img align="center" width="80%" marginRight="auto" marginLeft="auto" src="./src/assets/pray-timing.png">
-
-## Links
-
-(Facebook)(https://www.facebook.com/profile.php?id=100085749470017)
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
