@@ -1,0 +1,66 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { LocalStorageData } from "../../context/localstrorage";
+import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+type LoopingData = {
+  data: {
+    number?: string;
+    name?: string;
+    numberOfAyahs?: string;
+    [key: string]: string | number | object | undefined;
+  }[];
+  loc: string;
+};
+
+export default function LoopingData({ data, loc }: LoopingData) {
+  const { getData } = useContext(LocalStorageData);
+
+  // useEffect
+  useEffect(() => {
+    if (getData?.name) {
+      const sorahScroll = document.querySelector(".sorah-scroll");
+      sorahScroll?.scrollIntoView({
+        block: "center",
+        behavior: "smooth",
+      });
+    }
+  }, []);
+
+  // Looping Data
+  const looping =
+    data.length !== undefined &&
+    data.map((sorah) => {
+      return (
+        <Link
+          key={sorah.number}
+          to={`${loc}/${sorah.number}`}
+          className="h-[170px] text-center flex items-center justify-center gap-7 flex-col border border-green-header rounded-xl bg-[#f1f5f9] shadow-box-sorah py-[10px] transition-all duration-[.4s] hover:shadow-box-sorah-hover hover:-translate-y-[10px] text-green-header relative group overflow-hidden"
+        >
+          {getData()?.name === sorah.number && (
+            <FontAwesomeIcon
+              className="sorah-scroll absolute -top-[5px] left-5 text-5xl text-[#82c9c5]"
+              icon={faBookmark}
+            />
+          )}
+          <h2 className="font-noto-urdo transition-all  duration-[.4s] group-hover:-translate-y-10">
+            {sorah.name}
+          </h2>
+          <div className="absolute bottom-0 right-0 w-full transition-all duration-[.4s] translate-y-[70px] group-hover:-translate-y-[18px]">
+            <p>
+              رقمها في المصحف <span>{sorah.number}</span>
+            </p>
+            <p>
+              عدد الآيات <span>{sorah.numberOfAyahs}</span>
+            </p>
+            <p>سورة {sorah.revelationType === "Meccan" ? "مكية" : "مدنية"}</p>
+          </div>
+        </Link>
+      );
+    });
+
+  // Return
+  return looping;
+}
