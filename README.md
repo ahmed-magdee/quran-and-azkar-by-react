@@ -31,6 +31,16 @@ I used Vite + react, Tailwind for styling, redux to manage the global state, rea
 
 #### Old :
 
+<img align="center" width="80%" marginLeft="auto" src="./src/assets/main-page-old.jpg">
+
+## Surahs List :
+
+#### New :
+
+<img align="center" width="80%" marginLeft="auto" src="./src/assets/sorahs-list-new.png">
+
+#### Old :
+
 <img align="center" width="80%" marginLeft="auto" src="./src/assets/sorahs-list-old.jpg">
 
 This section contain all of sorahs from api and there is the tafsir too .
