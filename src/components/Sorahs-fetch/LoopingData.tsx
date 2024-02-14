@@ -37,10 +37,11 @@ export default function LoopingData({ data, loc }: LoopingData) {
         <Link
           key={sorah.number}
           to={`${loc}/${sorah.number}`}
-          className={`h-[170px] text-center flex items-center justify-center gap-7 flex-col border border-green-header rounded-xl bg-[#f1f5f9] shadow-box-sorah py-[10px] transition-all duration-[.4s] hover:shadow-box-sorah-hover hover:-translate-y-[10px] 
+          className={`h-[170px] text-center flex items-center justify-center gap-7 flex-col border border-green-header rounded-xl bg-[#f1f5f9] py-[10px] transition-all duration-[.4s] 
           ${
-            getData()?.name === sorah.number &&
-            "-translate-y-[10px] shadow-box-sorah-hover"
+            getData()?.name === sorah.number
+              ? "-translate-y-[10px] shadow-box-sorah-hover"
+              : "shadow-box-sorah hover:shadow-box-sorah-hover hover:-translate-y-[10px] "
           }
         text-green-header relative group overflow-hidden`}
         >
@@ -51,14 +52,22 @@ export default function LoopingData({ data, loc }: LoopingData) {
             />
           )}
           <h2
-            className={`font-noto-urdo transition-all duration-[.4s] group-hover:-translate-y-10 
-            ${getData()?.name === sorah.number && "-translate-y-10"}`}
+            className={`font-noto-urdo transition-all duration-[.4s] 
+            ${
+              getData()?.name === sorah.number
+                ? "-translate-y-10"
+                : "group-hover:-translate-y-10 "
+            }`}
           >
             {sorah.name}
           </h2>
           <div
-            className={`absolute bottom-0 right-0 w-full transition-all duration-[.4s] translate-y-[70px] group-hover:-translate-y-[18px] 
-            ${getData()?.name === sorah.number && "-translate-y-[18px]"}`}
+            className={`absolute bottom-0 right-0 w-full transition-all duration-[.4s]
+            ${
+              getData()?.name === sorah.number
+                ? "-translate-y-[18px]"
+                : "translate-y-[70px] group-hover:-translate-y-[18px]"
+            }`}
           >
             <p>
               رقمها في المصحف <span>{sorah.number}</span>
