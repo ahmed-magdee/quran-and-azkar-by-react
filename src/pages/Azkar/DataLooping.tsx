@@ -52,15 +52,17 @@ export default function DataLooping({ dataWithKey, zekr }: DataLoopingProps) {
                 .join(" ")
                 .split(`'`)
                 .join(" ")}
-              <span className="bg-green-200 py-[3px] px-2 rounded-md text-base mr-[5px] inline-block">
-                {count && +count == 1
-                  ? "تُقرأ مرة"
-                  : count && +count == 2
-                  ? "تُقرأ مرتين"
-                  : count && +count >= 3 && +count <= 10
-                  ? `تُقرأ ${count} مرات`
-                  : count && +count >= 10 && `تُقرأ ${count} مرة`}
-              </span>
+              {category !== "دعاء ختم القرآن" && (
+                <span className="bg-green-200 py-[3px] px-2 rounded-md text-base mr-[5px] inline-block">
+                  {count && +count == 1
+                    ? "تُقرأ مرة"
+                    : count && +count == 2
+                    ? "تُقرأ مرتين"
+                    : count && +count >= 3 && +count <= 10
+                    ? `تُقرأ ${count} مرات`
+                    : count && +count >= 10 && `تُقرأ ${count} مرة`}
+                </span>
+              )}
             </span>
           )}
           {description && description !== "stpo" && (

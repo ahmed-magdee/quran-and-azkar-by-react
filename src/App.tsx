@@ -5,6 +5,7 @@ import Hadeeth from "./pages/Hadeeth-shareef/Hadeeth";
 import AzkarMainPage from "./pages/Azkar/AzkarMainPage";
 import TimeMainPage from "./pages/Pray-timing/TimeMainPage";
 import Quran from "./pages/Quran/Quran";
+import Information from "./components/Information";
 
 const router = createHashRouter([
   {
@@ -30,6 +31,10 @@ const router = createHashRouter([
   {
     path: "pray-timing",
     element: <TimeMainPage />,
+  },
+  {
+    path: "info",
+    element: <Information />,
   },
 ]);
 
