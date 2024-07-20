@@ -69,11 +69,11 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
     return (
       <React.Fragment key={numberInSurah}>
         <span
-          className={`text-[28px] font-bold leading-[2.4] transition-all duration-300 cursor-pointer 
+          className={`text-[28px] font-bold leading-[2.4] transition-all duration-300 cursor-pointer  rounded-md
           ${
             getData()?.aya === numberInSurah && getData()?.name === number
               ? "bg-[#d3ffe3] this-aya"
-              : "hover:bg-paige-color"
+              : "hover:bg-paige-color dark:hover:bg-slate-800"
           } 
           `}
           onClick={() => ayaClick(number, numberInSurah)}
@@ -81,7 +81,7 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
           {text}
         </span>
         <span
-          className="sorah-number text-green-header font-normal cursor-pointer relative group"
+          className="sorah-number text-green-header dark:text-dark-green font-normal cursor-pointer relative group"
           onClick={() => handleClick(number, numberInSurah)}
         >
           <div className="absolute -top-12 w-[100px] invisible transition-all duration-300 group-hover:visible">
@@ -101,7 +101,7 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
     <div className="p-5 overflow-hidden">
       <ScrollToTop />
       {show && <PopUp />}
-      <div className="bg-white text-green-header text-center py-3 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden">
+      <div className="bg-white dark:bg-slate-950 text-green-header dark:text-dark-green text-center py-3 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden">
         <TafsirAya // Tafsir Aya
           tafsirAyaStatus={tafsirAyaStatus}
           setTafsirAyaStatus={setTafsirAyaStatus}

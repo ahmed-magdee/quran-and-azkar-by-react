@@ -33,7 +33,7 @@ export default function TimeMainPage() {
     <>
       <Header />
       <ContainerSorahs styles="p-5">
-        <Container styles=" bg-white text-center text-green-header pb-3 pt-10 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8">
+        <Container styles=" bg-white dark:bg-slate-900 text-center text-green-header dark:text-dark-green pb-3 pt-10 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8">
           <TimingHeader data={data.data && data.data.date} />
           {/* Choose The Country */}
           <ChooseTheCountry

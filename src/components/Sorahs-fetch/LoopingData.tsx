@@ -37,13 +37,13 @@ export default function LoopingData({ data, loc }: LoopingData) {
         <Link
           key={sorah.number}
           to={`${loc}/${sorah.number}`}
-          className={`h-[170px] text-center flex items-center justify-center gap-7 flex-col border border-green-header rounded-xl bg-[#f1f5f9] py-[10px] transition-all duration-[.4s] 
+          className={`h-[170px] text-center flex items-center justify-center gap-7 flex-col border border-green-header rounded-xl bg-[#f1f5f9] dark:bg-slate-950 py-[10px] transition-all duration-[.4s] 
           ${
             getData()?.name === sorah.number
-              ? "-translate-y-[10px] shadow-box-sorah-hover"
-              : "shadow-box-sorah hover:shadow-box-sorah-hover hover:-translate-y-[10px] "
+              ? "-translate-y-[10px] shadow-box-sorah-hover dark:shadow-box-sorah"
+              : "shadow-box-sorah hover:shadow-box-sorah-hover dark:hover:shadow-box-sorah hover:-translate-y-[10px] "
           }
-        text-green-header relative group overflow-hidden`}
+        text-green-header dark:text-dark-green relative group overflow-hidden`}
         >
           {getData()?.name === sorah.number && (
             <FontAwesomeIcon

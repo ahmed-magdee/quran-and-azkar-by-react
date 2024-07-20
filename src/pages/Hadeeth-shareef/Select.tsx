@@ -37,11 +37,12 @@ export default function Select({
   return (
     <div className="select-and-buttons flex items-center justify-center gap-8 flex-wrap">
       <button
-        className={`border border-green-header py-[2px] px-[7px] sm:text-lg rounded-md transition-all duration-300 hover:bg-green-header hover:text-white ${
+        className={`border border-green-header dark:border-dark-green py-[2px] px-[7px] sm:text-lg rounded-md transition-all duration-300 hover:bg-green-header hover:text-white ${
           pagination &&
           hadeethNumber == +pagination?.endIndex &&
           "pointer-events-none"
         }`}
+        type="button"
         onClick={nextBtn}
       >
         التالي
@@ -60,9 +61,10 @@ export default function Select({
         ))}
       </select>
       <button
-        className={`border border-green-header py-[2px] px-[7px] sm:text-lg rounded-md transition-all duration-300 hover:bg-green-header hover:text-white ${
+        className={`border border-green-header dark:border-dark-green py-[2px] px-[7px] sm:text-lg rounded-md transition-all duration-300 hover:bg-green-header hover:text-white ${
           hadeethNumber === 0 && "pointer-events-none"
         }`}
+        type="button"
         onClick={previousBtn}
       >
         السابق

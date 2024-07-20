@@ -13,10 +13,10 @@ export default function LandingPageTwo() {
           />
         </div>
         <div className="w-full lg:w-[calc((100%/2)-10px)] text-center font-cairo">
-          <h1 className="font-noto-urdo text-3xl sm:text-5xl text-green-header mb-10">
+          <h1 className="font-noto-urdo text-3xl sm:text-5xl text-green-header dark:text-dark-green mb-10">
             قرآن وأذكار
           </h1>
-          <p className="text-lg sm:text-2xl sm:leading-[1.7]">
+          <p className="text-lg sm:text-2xl sm:leading-[1.7] dark:text-white">
             يحتوي موقعنا علي القرآن الكريم والتفسير الميسر والحديث الشريف وجميع
             الأذكار التي تحتاجها في حياتك اليومية <br />
             سيكون هذا الموقع محدث بصورة دائمة إن شاء الله.

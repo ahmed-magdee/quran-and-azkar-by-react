@@ -39,7 +39,7 @@ export default function DataLooping({ dataWithKey, zekr }: DataLoopingProps) {
       category !== "stop" && (
         <div
           key={content}
-          className="mb-8 max-w-[800px] mx-auto border-b border-green-header pb-3"
+          className="mb-8 max-w-[800px] mx-auto border-b border-green-header dark:border-dark-green pb-3"
         >
           {content !== "stop" && (
             <span className="text-xl sm:text-2xl leading-[2] sm:leading-[2]">
@@ -77,8 +77,8 @@ export default function DataLooping({ dataWithKey, zekr }: DataLoopingProps) {
 
   // Return
   return (
-    <div className="mt-10 border-t border-green-header pt-6 font-cairo">
-      <h1 className="border-b border-green-header w-fit mx-auto relative before:content-[''] before:absolute before:w-[10px] before:h-[10px]  before:top-1/2 before:-right-5 before:-translate-y-1/2 before:bg-green-header before:rounded-full after:content-[''] after:absolute after:w-[10px] after:h-[10px] after:bg-green-header after:rounded-full after:top-1/2 after:-left-5 after:-translate-y-1/2">
+    <div className="dark:text-dark-green mt-10 border-t border-green-header dark:border-dark-green pt-6 font-cairo">
+      <h1 className="border-b border-green-header dark:border-dark-green w-fit mx-auto relative before:content-[''] before:absolute before:w-[10px] before:h-[10px]  before:top-1/2 before:-right-5 before:-translate-y-1/2 before:bg-green-header dark:before:bg-dark-green before:rounded-full after:content-[''] after:absolute after:w-[10px] after:h-[10px] after:bg-green-header dark:after:bg-dark-green after:rounded-full after:top-1/2 after:-left-5 after:-translate-y-1/2">
         {zekr}
       </h1>
       <div className="mt-5">{looping}</div>

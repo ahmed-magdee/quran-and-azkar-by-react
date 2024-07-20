@@ -90,7 +90,7 @@ export default function TafsirAya({
   return (
     data.data.arabic_text && (
       <div
-        className={`fixed bg-white/60 backdrop-blur-md text-center w-full h-full z-30 top-0 right-0 p-[15px] flex items-center justify-center transition-all duration-300 ${
+        className={`fixed bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-center w-full h-full z-30 top-0 right-0 p-[15px] flex items-center justify-center transition-all duration-300 ${
           tafsirAyaStatus ? "translate-y-0" : "translate-y-full"
         }`}
         onClick={closeByParent}
@@ -103,8 +103,8 @@ export default function TafsirAya({
         </button>
 
         {/* Box Of Texts */}
-        <div className="font shadow-header-shadow rounded-lg w-[72rem] max-h-[450px] py-5 px-3 overflow-y-auto border border-[#009688] bg-white">
-          <h1 className="leading-[1.6] mb-9 border-b border-green-header pb-1">
+        <div className="font shadow-header-shadow rounded-lg w-[72rem] max-h-[450px] py-5 px-3 overflow-y-auto border border-[#009688] bg-white dark:bg-slate-900">
+          <h1 className="leading-[1.6] mb-9 border-b border-green-header dark:border-dark-green pb-1">
             {data.data.arabic_text}
           </h1>
           <p className="text-2xl leading-[1.8]">{data.data.translation}</p>

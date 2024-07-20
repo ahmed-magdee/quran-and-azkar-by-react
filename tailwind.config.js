@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{jxs,tsx}", "./index.html"],
+  darkMode: "class",
   theme: {
     extend: {
       container: {
@@ -19,6 +20,7 @@ export default {
         "green-fifth": "#E0F2F1",
         "green-footer": "#00685c",
         "paige-color": "#f1f5f9",
+        "dark-green": "#379569",
       },
       animation: {
         "top-to-bottom": "1.5s top-bottom ease-in-out",

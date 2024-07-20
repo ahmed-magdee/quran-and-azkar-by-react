@@ -17,7 +17,7 @@ export default function ContainerSorahs({
     >
       {/* Side */}
       {show && (
-        <div className="absolute top-0 right-0 w-full h-full bg-paige-color/80 -z[1]" />
+        <div className="absolute top-0 right-0 w-full h-full bg-paige-color/80 dark:bg-slate-900 -z[1]" />
       )}
       {children}
     </div>

@@ -32,7 +32,7 @@
 
 header a.active,
 footer a.active {
-  @apply text-green-header;
+  @apply text-green-header dark:text-dark-green;
 }
 
 header a.active::before,
@@ -132,7 +132,7 @@ footer a.active::before {
 }
 
 .main-select {
-  @apply border border-green-header py-[2px] px-[7px] sm:text-lg rounded-md transition-all duration-300 outline-none;
+  @apply border border-green-header dark:border-dark-green dark:bg-slate-900 py-[2px] px-[7px] sm:text-lg rounded-md transition-all duration-300 outline-none;
 }
 
 .pray-time-ul {

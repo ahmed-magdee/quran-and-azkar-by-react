@@ -27,7 +27,7 @@ function Information() {
   return (
     <>
       <Header />
-      <div className="bg-white text-green-header m-5 pt-10 pb-5 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 relative">
+      <div className="bg-white dark:bg-slate-900 text-green-header dark:text-dark-green m-5 pt-10 pb-5 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 relative">
         <h1 className="w-fit border-b border-green-header mx-auto">
           <span className="w-2 h-2 bg-green-header inline-block rounded-full" />{" "}
           صفحة التعليمات{" "}
