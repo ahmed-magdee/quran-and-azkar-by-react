@@ -43,7 +43,7 @@ export default function AzkarMainPage() {
     <>
       <Header />
       <ContainerSorahs styles="p-5">
-        <Container styles=" bg-white dark:bg-slate-900 text-center text-green-header pb-3 pt-10 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8">
+        <Container styles=" bg-white dark:bg-slate-950 text-center text-green-header pb-3 pt-10 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8">
           {/* Keys Of Azkar */}
           <AzkarKeys allKeys={keys} zekr={zekr} setZekr={setZekr} />
           {/* Data Div */}

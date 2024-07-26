@@ -52,7 +52,7 @@ export default function Hadeeth() {
     <>
       <Header />
       <ContainerSorahs styles="p-5">
-        <Container styles=" bg-white dark:bg-slate-900 text-center text-green-header dark:text-dark-green py-3 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 flex items-center justify-center flex-col">
+        <Container styles=" bg-white dark:bg-slate-950 text-center text-green-header dark:text-dark-green py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 flex items-center justify-center flex-col">
           {/* Hadeeth Header */}
           <div className="hadeeth-header w-full bg-green-header dark:bg-dark-green text-white py-[10px] px-[5px] rounded-xl mb-10">
             <h2 className="mb-5 font-cairo leading-[2]">
