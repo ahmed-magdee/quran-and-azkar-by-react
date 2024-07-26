@@ -25,6 +25,8 @@ export default function ScrollToTop() {
       className={`fixed w-10 h-10 bg-green-header text-white border-none outline-none rounded-full bottom-5 transition-all duration-300 ${
         show ? "right-5" : "-right-10"
       } z-30`}
+      type="button"
+      title="To Top"
       onClick={handleClick}
     >
       <FontAwesomeIcon icon={faChevronUp} />

@@ -101,7 +101,7 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
     <div className="p-5 overflow-hidden">
       <ScrollToTop />
       {show && <PopUp />}
-      <div className="bg-white dark:bg-slate-950 text-green-header dark:text-dark-green text-center py-3 rounded-md shadow-sorah-header border border-[#ccc] min-h-[calc(100vh-(70px+40px))] overflow-hidden">
+      <div className="bg-white dark:bg-slate-950 text-green-header dark:text-dark-green text-center py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden">
         <TafsirAya // Tafsir Aya
           tafsirAyaStatus={tafsirAyaStatus}
           setTafsirAyaStatus={setTafsirAyaStatus}
