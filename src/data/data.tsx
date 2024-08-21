@@ -79,33 +79,114 @@ export const mainSideDiv = [
 
 // Location For Pray Timing
 export const rightLocation = [
-  "الاسكندرية",
-  "مطروح",
-  "القاهرة",
-  "الجيزة",
-  "شمال سيناء",
-  "جنوب سيناء",
-  "بور سعيد",
-  "الغردقة",
-  "كفر الشيخ",
-  "البحيرة",
-  "المنوفية",
-  "دمياط",
-  "الدقهلية",
-  "الغربية",
-  "الشرقية",
-  "القليوبية",
-  "الاسماعيلية",
-  "السويس",
-  "البحر الاحمر",
-  "الفيوم",
-  "بني سويف",
-  "المنيا",
-  "اسيوط",
-  "سوهاج",
-  "قنا",
-  "الاقصر",
-  "اسوان",
+  {
+    location: "الإسكندرية",
+    value: "alexandria",
+  },
+  {
+    location: "مطروح",
+    value: "matrouh",
+  },
+  {
+    location: "القاهرة",
+    value: "cairo",
+  },
+  {
+    location: "الجيزة",
+    value: "giza",
+  },
+  {
+    location: "شمال سيناء",
+    value: "northsinai",
+  },
+  {
+    location: "جنوب سيناء",
+    value: "southsinai",
+  },
+  {
+    location: "بور سعيد",
+    value: "porsaid",
+  },
+  {
+    location: "الغردقة",
+    value: "الغردقة",
+  },
+  {
+    location: "كفر الشيخ",
+    value: "kafrelsheikh",
+  },
+  {
+    location: "البحيرة",
+    value: "البحيرة",
+  },
+  {
+    location: "المنوفية",
+    value: "المنوفية",
+  },
+  {
+    location: "دمياط",
+    value: "دمياط",
+  },
+  {
+    location: "الدقهلية",
+    value: "الدقهلية",
+  },
+  {
+    location: "الغربية",
+    value: "الغربية",
+  },
+  {
+    location: "الشرقية",
+    value: "الشرقية",
+  },
+  {
+    location: "القليوبية",
+    value: "القليوبية",
+  },
+  {
+    location: "الاسماعيلية",
+    value: "الاسماعيلية",
+  },
+  {
+    location: "السويس",
+    value: "السويس",
+  },
+  {
+    location: "البحر الاحمر",
+    value: "البحرالاحمر",
+  },
+  {
+    location: "الفيوم",
+    value: "الفيوم",
+  },
+  {
+    location: "بني سويف",
+    value: "banisweif",
+  },
+  {
+    location: "المنيا",
+    value: "المنيا",
+  },
+  {
+    location: "اسيوط",
+    value: "اسيوط",
+  },
+  {
+    location: "سوهاج",
+    value: "سوهاج",
+  },
+  {
+    location: "قنا",
+    value: "قنا",
+  },
+  {
+    location: "الاقصر",
+    value: "الاقصر",
+  },
+  {
+    location: "اسوان",
+    value: "اسوان",
+  },
 ];
 
 // Cards Choose Quran

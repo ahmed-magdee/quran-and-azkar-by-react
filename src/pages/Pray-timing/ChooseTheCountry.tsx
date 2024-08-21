@@ -12,14 +12,11 @@ export default function ChooseTheCountry({
   setSelectValue,
 }: ChooseTheCountry) {
   // looping on locations
-  const looping = rightLocation.map((loc) => {
-    const value = loc.split(" ").join("_");
-    return (
-      <option key={value} value={value}>
-        {loc}
-      </option>
-    );
-  });
+  const looping = rightLocation.map(({ location, value }) => (
+    <option key={location} value={value}>
+      {location}
+    </option>
+  ));
 
   // selectChange
   const selectChange = (e: { target: { value: SetStateAction<string> } }) => {
@@ -31,7 +28,12 @@ export default function ChooseTheCountry({
     <div className="border-b border-green-header pb-5">
       <p className="sm:text-xl">
         هذه المواقيت طبقا لمحافظة{" "}
-        <span className="font-bold">{selectValue.split("_").join(" ")}</span>
+        <span className="font-bold">
+          {
+            rightLocation.find((location) => location.value === selectValue)
+              ?.location
+          }
+        </span>
       </p>
       <p className="sm:text-xl">
         أختر محافظتك الصحيحة{" "}

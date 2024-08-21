@@ -12,7 +12,7 @@ import TitleDocument from "../../components/Title-Modify/TitleDocument";
 export default function TimeMainPage() {
   TitleDocument("توقيت الصلاة");
   // useState
-  const [selectValue, setSelectValue] = useState("الاسكندرية");
+  const [selectValue, setSelectValue] = useState("alexandria");
   const theDay = new Date().getDate();
   const theMonth = new Date().getMonth() + 1;
   const theYear = new Date().getFullYear();
