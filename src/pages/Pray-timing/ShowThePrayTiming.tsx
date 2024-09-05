@@ -63,21 +63,32 @@ export default function ShowThePrayTiming({ time }: ShowThePrayTimingProps) {
   let timeNextPrayer: PrayerType = [];
 
   // getNextTimePrayer Funtion
-  function getNextTimePrayer(realTime: string) {
-    const nextTimePray =
-      time &&
-      keys?.filter((oneTime) => +time[oneTime].replace(/:/g, "") >= +realTime);
-    timeNextPrayer = nextTimePray;
+  function getNextTimePrayer(realTime: string, timing: string) {
+    if (timing === "pm") {
+      const nextTimePray =
+        time &&
+        keys?.filter(
+          (oneTime) => +time[oneTime].replace(/:/g, "") >= +realTime
+        );
+      timeNextPrayer = nextTimePray;
+    } else {
+      const nextTimePray =
+        time &&
+        keys?.filter(
+          (oneTime) => +time[oneTime].replace(/:/g, "") <= +realTime
+        );
+      timeNextPrayer = nextTimePray;
+    }
   }
 
   if (PM_AM === "pm") {
     const realTime = (+theTimeWhatWeWant[0] + 12)
       .toString()
       .concat(theTimeWhatWeWant[1]);
-    getNextTimePrayer(realTime);
+    getNextTimePrayer(realTime, "pm");
   } else {
     const realTime = theTimeWhatWeWant.join("");
-    getNextTimePrayer(realTime);
+    getNextTimePrayer(realTime, "am");
   }
 
   // Looping
@@ -88,7 +99,11 @@ export default function ShowThePrayTiming({ time }: ShowThePrayTimingProps) {
         <li
           key={key}
           className={`h-[170px] border border-green-header rounded-xl flex items-center justify-center flex-col font-cairo p-3 shadow-box-sorah relative before:content-[''] before:absolute before:w-0 before:h-0 before:bg-[#71bfb8] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:transition-all before:duration-300 ${
-            timeNextPrayer && key === timeNextPrayer[0]
+            timeNextPrayer &&
+            key ===
+              (timeNextPrayer.includes("Lastthird")
+                ? timeNextPrayer[1]
+                : timeNextPrayer[0])
               ? "before:h-full before:w-full"
               : " hover:before:w-full hover:before:h-full"
           } overflow-hidden z-10 before:-z-[1]`}
