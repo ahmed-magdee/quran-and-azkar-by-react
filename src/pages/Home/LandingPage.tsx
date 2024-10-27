@@ -7,7 +7,7 @@ export default function LandingPage() {
     return (
       <p
         key={link.id}
-        className="land-item w-[92px] sm:w-[110px] h-[85px] sm:h-[100px] text-base sm:text-lg bg-green-fourth flex items-center justify-center animate-scale opacity-0 border border-white transition-all duration-300 hover:-translate-y-3"
+        className="land-item w-[92px] sm:w-[110px] h-[85px] sm:h-[100px] text-base sm:text-lg bg-green-header flex items-center justify-center animate-scale opacity-0 border border-white transition-all duration-300 hover:-translate-y-3"
         style={{ animationDelay: `${1.5 * link.id}s`, opacity: 1 }}
         set-data={1.5 + link.id}
       >

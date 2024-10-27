@@ -1,4 +1,3 @@
-import Header from "../../components/Header/Header";
 import ScrollToTop from "../../components/ScrollToTop";
 import SorahsFetch from "../../components/Sorahs-fetch/SorahsFetch";
 import TitleDocument from "../../components/Title-Modify/TitleDocument";
@@ -11,7 +10,6 @@ export default function Quran() {
   return (
     <>
       <ScrollToTop />
-      <Header />
       <ContainerSorahs styles="bg-[url('./assets/quran-side.jpg')]" show>
         {/* All Sorahs Fetch And Show */}
         <SorahsFetch loc="/quran" />

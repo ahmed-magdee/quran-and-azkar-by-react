@@ -1,12 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type ShowThePrayTimingProps = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   time?: { [key: string]: any } | undefined;
 };
-
-type PrayerType =
-  | ("Fajr" | "Dhuhr" | "Asr" | "Maghrib" | "Isha" | "Lastthird")[]
-  | undefined
-  | string[];
 
 // Component
 export default function ShowThePrayTiming({ time }: ShowThePrayTimingProps) {
@@ -22,91 +17,50 @@ export default function ShowThePrayTiming({ time }: ShowThePrayTimingProps) {
         key === "Lastthird"
     );
 
-  // ============================================================================
-  // Know The Next Time
-  // الحصول على الوقت الحالي
-  // const currentTime = new Date();
-
-  // // تحويل الوقت الحالي إلى تنسيق HH:MM
-  // const currentHours = currentTime.getHours();
-  // const currentMinutes = currentTime.getMinutes();
-
-  // // تحويل الأوقات في الكائن إلى دقائق للمقارنة
-  // const timesInMinutes: { [index: string]: number } = {};
-  // for (const key in time) {
-  //   const timeParts = time[key].split(":");
-  //   timesInMinutes[key] = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
-  // }
-
-  // // تحويل الوقت الحالي إلى دقائق للمقارنة
-  // const currentMinutesPastMidnight = currentHours * 60 + currentMinutes;
-
-  // // العثور على المفتاح الأقرب التالي
-  // let closestNextKey: string;
-  // let smallestDifference = Infinity;
-  // for (const key in timesInMinutes) {
-  //   const difference = timesInMinutes[key] - currentMinutesPastMidnight;
-  //   // يعني عايزين القيمة ال اكبر من الصفر واصغر من المالانهاية
-  //   if (difference > 0 && difference < smallestDifference) {
-  //     smallestDifference = difference;
-  //     closestNextKey = key;
-  //   }
-  // }
-
   // =========================================================================
 
-  const currentTime = new Date();
-  const timeNow = currentTime.toLocaleTimeString();
-  const timeOnly = timeNow.split(" ")[0];
-  const theTimeWhatWeWant = timeOnly.split(":").slice(0, 2);
-  const PM_AM = timeNow.split(" ")[1].toLowerCase();
-  let timeNextPrayer: PrayerType = [];
-
   // getNextTimePrayer Funtion
-  function getNextTimePrayer(realTime: string, timing: string) {
-    if (timing === "pm") {
-      const nextTimePray =
-        time &&
-        keys?.filter(
-          (oneTime) => +time[oneTime].replace(/:/g, "") >= +realTime
-        );
-      timeNextPrayer = nextTimePray;
-    } else {
-      const nextTimePray =
-        time &&
-        keys?.filter(
-          (oneTime) => +time[oneTime].replace(/:/g, "") <= +realTime
-        );
-      timeNextPrayer = nextTimePray;
+  function getNextPrayerTime(currentTime: string) {
+    const times = (keys || ([] as any)).map((prayer: string | number) => {
+      const [hours, minutes] = time && time[prayer].split(":");
+      const date = new Date();
+      date.setHours(hours, minutes, 0);
+      return { prayer, time: date };
+    });
+
+    times.sort((a: any, b: any) => a.time - b.time);
+
+    const now = new Date();
+    const currentTimeParts = currentTime.split(":").map(Number);
+    now.setHours(currentTimeParts[0], currentTimeParts[1]);
+
+    for (const { prayer, time } of times) {
+      if (time > now) {
+        return prayer;
+      }
     }
+
+    return "Lastthird"; // if all today's prayers have passed, return Lastthird for the next day
   }
 
-  if (PM_AM === "pm") {
-    const realTime = (+theTimeWhatWeWant[0] + 12)
-      .toString()
-      .concat(theTimeWhatWeWant[1]);
-    getNextTimePrayer(realTime, "pm");
-  } else {
-    const realTime = theTimeWhatWeWant.join("");
-    getNextTimePrayer(realTime, "am");
-  }
+  const currentTime = new Date().toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
-  // Looping
+  // // Looping
   const dataWeWant =
     time &&
     keys?.map((key) => {
       return (
         <li
           key={key}
-          className={`h-[170px] border border-green-header rounded-xl flex items-center justify-center flex-col font-cairo p-3 shadow-box-sorah relative before:content-[''] before:absolute before:w-0 before:h-0 before:bg-[#71bfb8] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:transition-all before:duration-300 ${
-            timeNextPrayer &&
-            key ===
-              (timeNextPrayer.includes("Lastthird")
-                ? timeNextPrayer[1]
-                : timeNextPrayer[0])
-              ? "before:h-full before:w-full"
-              : " hover:before:w-full hover:before:h-full"
-          } overflow-hidden z-10 before:-z-[1]`}
+          className={`h-[170px] border border-green-header rounded-xl flex items-center justify-center flex-col font-cairo p-3 shadow-box-sorah relative before:content-[''] before:absolute before:w-0 before:h-0 before:bg-green-header before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:transition-all before:duration-300 ${
+            getNextPrayerTime(currentTime) &&
+            key === getNextPrayerTime(currentTime)
+              ? "before:h-full before:w-full text-white"
+              : " hover:before:w-full hover:before:h-full hover:text-white"
+          } overflow-hidden z-10 before:-z-[1] transition-all duration-300`}
         >
           <p className="text-2xl font-bold mb-5">
             {key == "Fajr"

@@ -14,11 +14,6 @@ export default {
       },
       colors: {
         "green-header": "#004d40",
-        "green-second": "#80CBC4",
-        "green-thired": "#80CBC4",
-        "green-fourth": "#004D40",
-        "green-fifth": "#E0F2F1",
-        "green-footer": "#00685c",
         "paige-color": "#f1f5f9",
         "dark-green": "#379569",
       },

@@ -1,5 +1,4 @@
 import { information } from "../data/data";
-import Header from "./Header/Header";
 import TitleDocument from "./Title-Modify/TitleDocument";
 
 function Information() {
@@ -26,13 +25,12 @@ function Information() {
 
   return (
     <>
-      <Header />
-      <div className="bg-white dark:bg-slate-950 text-green-header dark:text-dark-green m-5 pt-10 pb-5 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 relative">
-        <h1 className="w-fit border-b border-green-header mx-auto">
+      <div className="bg-white dark:bg-slate-950 text-green-header dark:text-white m-5 pt-10 pb-5 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 relative">
+        <h2 className="w-fit border-b border-green-header mx-auto">
           <span className="w-2 h-2 bg-green-header dark:bg-dark-green inline-block rounded-full" />{" "}
           صفحة التعليمات{" "}
           <span className="w-2 h-2 bg-green-header dark:bg-dark-green inline-block rounded-full" />
-        </h1>
+        </h2>
         <ul className="mt-8 space-y-3 sm:text-lg">{informationLooping}</ul>
       </div>
     </>

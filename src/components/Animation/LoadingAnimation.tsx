@@ -1,7 +1,7 @@
 export default function LoadingAnimation() {
   const spans = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
-    <div className="fixed top-0 right-0 bg-white/70 dark:bg-slate-900/90 backdrop-blur-md w-full h-full flex items-center justify-center z-30">
+    <div className="absolute top-0 right-0 bg-white/70 dark:bg-slate-900/90 backdrop-blur-md w-full h-full flex items-center justify-center z-30">
       {spans.map((one) => (
         <span
           key={one}

@@ -22,5 +22,5 @@ export default function TimingHeader({ data }: TimingHeaderProps) {
     `اليوم ${data?.hijri?.weekday.ar} الموافق ${data?.hijri?.day}-${data?.hijri?.month.ar}-${data?.hijri.year}هـ`;
 
   //Return
-  return <h1 className="mb-[10px] leading-[1.8]">{theDate}</h1>;
+  return <h2 className="mb-[10px] leading-[1.8]">{theDate}</h2>;
 }

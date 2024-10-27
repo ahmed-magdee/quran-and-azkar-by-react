@@ -71,11 +71,6 @@ export default function TafsirAya({
       });
   }
 
-  // Loading Animation
-  if (data.loading) {
-    return <LoadingAnimation />;
-  }
-
   // closeClick
   const closeClick = () => {
     setTafsirAyaStatus(false);
@@ -88,28 +83,27 @@ export default function TafsirAya({
 
   // Return
   return (
-    data.data.arabic_text && (
-      <div
-        className={`fixed bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-center w-full h-full z-30 top-0 right-0 p-[15px] flex items-center justify-center transition-all duration-300 ${
-          tafsirAyaStatus ? "translate-y-0" : "translate-y-full"
-        }`}
-        onClick={closeByParent}
+    <div
+      className={`fixed bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-center w-full h-full z-30 top-0 right-0 p-[15px] flex items-center justify-center transition-all duration-300 ${
+        tafsirAyaStatus ? "translate-y-0" : "translate-y-full"
+      }`}
+      onClick={closeByParent}
+    >
+      {data.loading && <LoadingAnimation />}
+      <button
+        className="close w-10 h-10 bg-red-700 text-white absolute top-5 right-5 focus:outline-none border-none rounded-2xl text-2xl"
+        onClick={closeClick}
       >
-        <button
-          className="close w-10 h-10 bg-red-700 text-white absolute top-5 right-5 focus:outline-none border-none rounded-2xl text-2xl"
-          onClick={closeClick}
-        >
-          <span>X</span>
-        </button>
+        <span>X</span>
+      </button>
 
-        {/* Box Of Texts */}
-        <div className="font shadow-header-shadow rounded-lg w-[72rem] max-h-[450px] py-5 px-3 overflow-y-auto border border-[#009688] bg-white dark:bg-slate-900">
-          <h1 className="leading-[1.6] mb-9 border-b border-green-header dark:border-dark-green pb-1">
-            {data.data.arabic_text}
-          </h1>
-          <p className="text-2xl leading-[1.8]">{data.data.translation}</p>
-        </div>
+      {/* Box Of Texts */}
+      <div className="font shadow-header-shadow rounded-lg w-[72rem] max-h-[450px] py-5 px-3 overflow-y-auto border border-[#009688] bg-white dark:bg-slate-900">
+        <h2 className="leading-[1.6] mb-9 border-b border-green-header dark:border-dark-green pb-1">
+          {data.data.arabic_text}
+        </h2>
+        <p className="text-2xl leading-[1.8]">{data.data.translation}</p>
       </div>
-    )
+    </div>
   );
 }

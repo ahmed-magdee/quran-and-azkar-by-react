@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import LoadingAnimation from "../../components/Animation/LoadingAnimation";
-import Header from "../../components/Header/Header";
 import ContainerSorahs from "../../components/container/ContainerSorahs";
 import { useParams } from "react-router-dom";
 import LoopingSorah from "./LoopingSorah";
@@ -35,7 +34,6 @@ export default function Sorah() {
   // Return
   return (
     <>
-      <Header />
       <ContainerSorahs>
         <LoopingSorah data={data.data as DataTypes} />
       </ContainerSorahs>

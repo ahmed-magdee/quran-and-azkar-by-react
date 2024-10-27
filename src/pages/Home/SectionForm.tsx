@@ -7,9 +7,9 @@ export default function SectionForm() {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-green-header/80 -z-[1]" />
       <div className="absolute top-0 left-0 w-1/2 h-full bg-black/80 -z-[1]" />
       <Container>
-        <h1 className="w-fit mx-auto border-b-[2px] mb-8 border-white">
+        <h2 className="w-fit mx-auto border-b-[2px] mb-8 border-white">
           قل رأيك
-        </h1>
+        </h2>
         <div className="flex justify-center gap-8 flex-wrap">
           <p className="leading-[2.4] text-lg w-full md:w-[calc(50%-20px)]">
             اللهمّ اجعل لي من لدنك وليًا واجعل لي من لدنك سلطانًا نصيرًا، اللهمّ

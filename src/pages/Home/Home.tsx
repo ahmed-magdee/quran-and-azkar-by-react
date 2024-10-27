@@ -1,4 +1,3 @@
-import Header from "../../components/Header/Header";
 import ScrollToTop from "../../components/ScrollToTop";
 import Doaa from "./Doaa";
 import SectionForm from "./SectionForm";
@@ -11,7 +10,6 @@ export default function Home() {
   return (
     <>
       <ScrollToTop />
-      <Header />
       <LandingPageTwo />
       <Doaa />
       <SectionForm />

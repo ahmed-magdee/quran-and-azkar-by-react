@@ -1,3 +1,6 @@
+import CircleAbsolute from "../../components/CircleAbsolute";
+import moreAzkarSabahAndMissaa from "../../data/AddMoreAzkar";
+
 type DataLoopingProps = {
   dataWithKey?: {
     category: string | undefined;
@@ -8,24 +11,30 @@ type DataLoopingProps = {
   zekr: string;
 };
 
-type AllData =
-  | {
-      category?: string;
-      content?: string;
-      description?: string;
-      count?: number;
-    }[]
-  | undefined;
+type AllData = {
+  category?: string;
+  content?: string;
+  description?: string;
+  count?: number;
+}[];
 
-// Component
+// Main Component
 export default function DataLooping({ dataWithKey, zekr }: DataLoopingProps) {
   // Looping Becuase Azkar al-sabah
-  let allData: AllData;
+  let allData: AllData = [];
   dataWithKey?.map((one) => {
     if (one.category === "أذكار الصباح") {
       const firstIndexInDataWithKeys = dataWithKey.slice(0, 1);
       const allDataAfterFirstIndex = dataWithKey.slice(1);
-      allData = allDataAfterFirstIndex.concat(...firstIndexInDataWithKeys);
+      allData = [
+        ...moreAzkarSabahAndMissaa("أذكار الصباح"),
+        ...allDataAfterFirstIndex.concat(...firstIndexInDataWithKeys),
+      ] as never;
+    } else if (one.category === "أذكار المساء") {
+      allData = [
+        ...moreAzkarSabahAndMissaa("أذكار المساء"),
+        ...dataWithKey,
+      ] as never;
     } else {
       allData = dataWithKey;
     }
@@ -53,7 +62,7 @@ export default function DataLooping({ dataWithKey, zekr }: DataLoopingProps) {
                 .split(`'`)
                 .join(" ")}
               {category !== "دعاء ختم القرآن" && (
-                <span className="bg-green-200 py-[3px] px-2 rounded-md text-base mr-[5px] inline-block">
+                <span className="bg-green-header/90 py-[3px] px-2 rounded-md text-base mr-[5px] inline-block text-white">
                   {count && +count == 1
                     ? "تُقرأ مرة"
                     : count && +count == 2
@@ -77,11 +86,13 @@ export default function DataLooping({ dataWithKey, zekr }: DataLoopingProps) {
 
   // Return
   return (
-    <div className="dark:text-dark-green mt-10 border-t border-green-header dark:border-dark-green pt-6 font-cairo">
-      <h1 className="border-b border-green-header dark:border-dark-green w-fit mx-auto relative before:content-[''] before:absolute before:w-[10px] before:h-[10px]  before:top-1/2 before:-right-5 before:-translate-y-1/2 before:bg-green-header dark:before:bg-dark-green before:rounded-full after:content-[''] after:absolute after:w-[10px] after:h-[10px] after:bg-green-header dark:after:bg-dark-green after:rounded-full after:top-1/2 after:-left-5 after:-translate-y-1/2">
+    <div className="dark:text-white mt-10 border-t border-green-header dark:border-dark-green pt-6 font-cairo">
+      <h2 className="text-xl sm:text-3xl border-b border-green-header dark:border-white w-fit mx-auto relative px-5">
+        <CircleAbsolute width="10px" leftOrRight="left-0" />
+        <CircleAbsolute width="10px" leftOrRight="right-0" />
         {zekr}
-      </h1>
-      <div className="mt-5">{looping}</div>
+      </h2>
+      <div className="mt-10">{looping}</div>
     </div>
   );
 }

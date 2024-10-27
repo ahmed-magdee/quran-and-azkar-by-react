@@ -1,9 +1,9 @@
 export default function Doaa() {
   return (
     <div className="my-10 py-10 px-[15px] bg-green-header border-[2px] border-gray-600 shadow-box-shadow text-center text-white font-cairo">
-      <h1 className="border-b-[2px] border-white w-fit mx-auto mb-5">
+      <h2 className="border-b-[2px] border-white w-fit mx-auto mb-5">
         <q>أدعو لمن فقدناهم</q>
-      </h1>
+      </h2>
       <p className="leading-[2.4] text-lg">
         اللهم اغفر لهم وارحمهم، وعافهم واعف عنهم، وأكرم نزلهم، ووسع مدخلهم،
         واغسلهم بالماء والثلج والبرد، ونقهم من الخطايا كما ينقى الثوب الأبيض من

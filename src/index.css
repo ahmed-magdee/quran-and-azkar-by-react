@@ -7,7 +7,7 @@
     @apply text-xl sm:text-3xl font-bold;
   }
   h2 {
-    @apply text-xl sm:text-2xl font-bold;
+    @apply text-xl sm:text-3xl font-bold;
   }
   h3 {
     @apply text-lg font-bold;
@@ -119,12 +119,7 @@ footer a.active::before {
 }
 
 .save-span {
-  border-width: 15px;
-  border-color: rgba(220, 252, 231, 1) transparent transparent transparent;
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
+  @apply border-[15px] border-t-green-100 dark:border-t-white border-b-transparent border-x-transparent absolute -bottom-[30px] left-1/2 -translate-x-1/2;
 }
 
 .close {

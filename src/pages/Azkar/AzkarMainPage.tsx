@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from "react";
-import Header from "../../components/Header/Header";
 import Container from "../../components/container/Container";
 import ContainerSorahs from "../../components/container/ContainerSorahs";
 import LoadingAnimation from "../../components/Animation/LoadingAnimation";
@@ -41,7 +40,6 @@ export default function AzkarMainPage() {
   // Return
   return (
     <>
-      <Header />
       <ContainerSorahs styles="p-5">
         <Container styles=" bg-white dark:bg-slate-950 text-center text-green-header pb-3 pt-10 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8">
           {/* Keys Of Azkar */}

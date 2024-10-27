@@ -65,14 +65,13 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
   // Looping
   const loop = ayahs?.map((aya) => {
     const { numberInSurah, text } = aya;
-    // console.log(aya);
     return (
       <React.Fragment key={numberInSurah}>
         <span
           className={`text-[28px] font-bold leading-[2.4] transition-all duration-300 cursor-pointer  rounded-md
           ${
             getData()?.aya === numberInSurah && getData()?.name === number
-              ? "bg-[#d3ffe3] this-aya"
+              ? "bg-[#d3ffe3] dark:bg-white dark:text-green-header this-aya"
               : "hover:bg-paige-color dark:hover:bg-slate-800"
           } 
           `}
@@ -84,8 +83,8 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
           className="sorah-number text-green-header dark:text-dark-green font-normal cursor-pointer relative group"
           onClick={() => handleClick(number, numberInSurah)}
         >
-          <div className="absolute -top-12 w-[100px] invisible transition-all duration-300 group-hover:visible">
-            <span className=" py-[2px] px-2 text-center rounded-lg bg-green-100">
+          <div className="absolute -top-12 w-[100px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <span className=" py-[2px] px-2 text-center rounded-lg bg-green-100 dark:bg-white">
               أضغط للحفظ
             </span>
             <span className="save-span" />
@@ -101,7 +100,7 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
     <div className="p-5 overflow-hidden">
       <ScrollToTop />
       {show && <PopUp />}
-      <div className="bg-white dark:bg-slate-950 text-green-header dark:text-dark-green text-center py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden">
+      <div className="bg-white dark:bg-slate-950 text-green-header dark:text-white text-center py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden">
         <TafsirAya // Tafsir Aya
           tafsirAyaStatus={tafsirAyaStatus}
           setTafsirAyaStatus={setTafsirAyaStatus}
