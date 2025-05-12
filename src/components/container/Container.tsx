@@ -6,7 +6,5 @@ type ContainerProps = {
 };
 
 export default function Container({ children, styles }: ContainerProps) {
-  return (
-    <div className={`${styles} px-[15px] md:px-8 relative`}>{children}</div>
-  );
+  return <div className={`${styles} container relative`}>{children}</div>;
 }

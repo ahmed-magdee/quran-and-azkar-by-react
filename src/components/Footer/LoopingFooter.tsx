@@ -1,6 +1,5 @@
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { footerData } from "../../data/data";
-import { classes } from "../../data/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function LoopingFooter() {
@@ -26,7 +25,7 @@ export default function LoopingFooter() {
 
   // Return
   return (
-    <div className={classes["footer-divs"]}>
+    <div className="w-full md:w-[calc(50%-10px)]">
       <h3 className="text-green-header dark:text-dark-green text-center md:text-right">
         لمتابعتي
       </h3>
@@ -34,7 +33,7 @@ export default function LoopingFooter() {
         {loopingData}
         <li>
           <a
-            className="transition-all duration-300 text-gray-400 hover:text-green-header dark:hover:text-dark-green inline-flex items-center gap-2 group"
+            className="transition-colors duration-300 text-gray-400 hover:text-green-header dark:hover:text-dark-green inline-flex items-center gap-2 group"
             href="tel:01144871555"
             target="_blank"
           >

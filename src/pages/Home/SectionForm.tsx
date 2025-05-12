@@ -1,4 +1,3 @@
-import Container from "../../components/container/Container";
 import Form from "./Form";
 
 export default function SectionForm() {
@@ -6,7 +5,7 @@ export default function SectionForm() {
     <div className="form-section py-20 bg-[url('./assets/form.jpg')] bg-center bg-cover text-white font-cairo relative z-10">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-green-header/80 -z-[1]" />
       <div className="absolute top-0 left-0 w-1/2 h-full bg-black/80 -z-[1]" />
-      <Container>
+      <div className="container">
         <h2 className="w-fit mx-auto border-b-[2px] mb-8 border-white">
           قل رأيك
         </h2>
@@ -20,7 +19,7 @@ export default function SectionForm() {
           </p>
           <Form />
         </div>
-      </Container>
+      </div>
     </div>
   );
 }

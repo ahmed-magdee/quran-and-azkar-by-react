@@ -49,40 +49,37 @@ export default function Hadeeth() {
 
   // Return
   return (
-    <>
-      <ContainerSorahs styles="p-5">
-        <Container styles=" bg-white dark:bg-slate-950 text-center text-green-header dark:text-white py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 flex items-center justify-center flex-col">
-          {/* Hadeeth Header */}
-          <div className="hadeeth-header w-full text-green-header dark:text-white py-[10px] px-[5px] mb-10 border-b border-green-header dark:border-white">
-            <h2 className="mb-5 font-cairo leading-[2] relative w-fit px-5 mx-auto">
-              <CircleAbsolute width="10px" leftOrRight="left-0" />
-              <CircleAbsolute width="10px" leftOrRight="right-0" />
-              إجمالي الأحاديث هو {pagination?.totalItems}
-            </h2>
-            <p className="sm:text-xl px-5 relative w-fit mx-auto">
-              <CircleAbsolute width="10px" leftOrRight="left-0" />
-              <CircleAbsolute width="10px" leftOrRight="right-0" />
-              هذا حديث رقم {items?.length &&
-                items[+hadeethNumber].number} من{" "}
-              {pagination?.endIndex && pagination?.endIndex + 1}
-            </p>
-          </div>
+    <ContainerSorahs styles="p-5">
+      <Container styles="bg-white dark:bg-slate-950 text-center text-green-header dark:text-white py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden px-[15px] md:px-8 flex items-center justify-center flex-col">
+        {/* Hadeeth Header */}
+        <div className="hadeeth-header w-full text-green-header dark:text-white py-[10px] px-[5px] mb-10 border-b border-green-header dark:border-white">
+          <h2 className="mb-5 font-cairo leading-[2] relative w-fit px-5 mx-auto">
+            <CircleAbsolute width="10px" leftOrRight="left-0" />
+            <CircleAbsolute width="10px" leftOrRight="right-0" />
+            إجمالي الأحاديث هو {pagination?.totalItems}
+          </h2>
+          <p className="sm:text-xl px-5 relative w-fit mx-auto">
+            <CircleAbsolute width="10px" leftOrRight="left-0" />
+            <CircleAbsolute width="10px" leftOrRight="right-0" />
+            هذا حديث رقم {items?.length && items[+hadeethNumber].number} من{" "}
+            {pagination?.endIndex && pagination?.endIndex + 1}
+          </p>
+        </div>
 
-          {/* Hadeeth Text */}
-          <div className="leading-[2.3] sm:leading-[2.3] text text-xl sm:text-2xl mb-8">
-            {items?.length && items[+hadeethNumber].arab}
-          </div>
+        {/* Hadeeth Text */}
+        <div className="leading-[2.3] sm:leading-[2.3] text text-xl sm:text-2xl mb-8">
+          {items?.length && items[+hadeethNumber].arab}
+        </div>
 
-          {/* Select And Buttons */}
-          <Select
-            pagination={pagination}
-            selectStatue={selectStatue}
-            setSelectStatue={setSelectStatue}
-            hadeethNumber={hadeethNumber}
-            setHadeethNumber={setHadeethNumber}
-          />
-        </Container>
-      </ContainerSorahs>
-    </>
+        {/* Select And Buttons */}
+        <Select
+          pagination={pagination}
+          selectStatue={selectStatue}
+          setSelectStatue={setSelectStatue}
+          hadeethNumber={hadeethNumber}
+          setHadeethNumber={setHadeethNumber}
+        />
+      </Container>
+    </ContainerSorahs>
   );
 }

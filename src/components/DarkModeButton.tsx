@@ -33,7 +33,6 @@ function DarkModeButton() {
     } else {
       window.localStorage.setItem("darkmode", "false");
     }
-    console.log(dark);
     setPosition((prev) => !prev);
   };
 

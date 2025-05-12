@@ -2,7 +2,7 @@
 import LoadingAnimation from "../../components/Animation/LoadingAnimation";
 import ContainerSorahs from "../../components/container/ContainerSorahs";
 import { useParams } from "react-router-dom";
-import LoopingSorah from "./LoopingSorah";
+import { LoopingSorah } from "./LoopingSorah";
 import GetData from "../../components/Get-Data/GetData";
 import TitleDocument from "../../components/Title-Modify/TitleDocument";
 
@@ -34,7 +34,7 @@ export default function Sorah() {
   // Return
   return (
     <>
-      <ContainerSorahs>
+      <ContainerSorahs styles="container">
         <LoopingSorah data={data.data as DataTypes} />
       </ContainerSorahs>
     </>

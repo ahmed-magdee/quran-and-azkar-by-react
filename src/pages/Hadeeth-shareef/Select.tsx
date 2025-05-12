@@ -47,19 +47,21 @@ export default function Select({
       >
         التالي
       </button>
-      <select
-        className="main-select"
-        name="page"
-        id="page"
-        value={selectStatue}
-        onChange={changeHandler}
-      >
-        {pagination?.pages.map((page) => (
-          <option value={page} key={page}>
-            الصفحة {page}
-          </option>
-        ))}
-      </select>
+      <label htmlFor="page">
+        <select
+          className="main-select"
+          name="page"
+          id="page"
+          value={selectStatue}
+          onChange={changeHandler}
+        >
+          {pagination?.pages.map((page) => (
+            <option value={page} key={page}>
+              الصفحة {page}
+            </option>
+          ))}
+        </select>
+      </label>
       <button
         className={`border border-green-header dark:border-dark-green py-[2px] px-[7px] sm:text-lg rounded-md transition-all duration-300 hover:bg-green-header hover:text-white ${
           hadeethNumber === 0 && "pointer-events-none"

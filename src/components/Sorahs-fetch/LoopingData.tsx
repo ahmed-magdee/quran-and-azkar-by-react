@@ -37,7 +37,7 @@ export default function LoopingData({ data, loc }: LoopingData) {
         <Link
           key={sorah.number}
           to={`${loc}/${sorah.number}`}
-          className={`h-[170px] text-center flex items-center justify-center gap-7 flex-col border border-green-header rounded-xl bg-[#f1f5f9] dark:bg-slate-950 py-[10px] transition-all duration-[.4s] 
+          className={`h-[170px] text-center flex items-center justify-center gap-7 flex-col border border-green-header rounded-xl bg-[#f1f5f9] dark:bg-slate-950 py-[10px] transition-[transform_box-shadow] duration-[.4s] 
           ${
             getData()?.name === sorah.number
               ? "-translate-y-[10px] shadow-box-sorah-hover dark:shadow-box-sorah"
@@ -52,7 +52,7 @@ export default function LoopingData({ data, loc }: LoopingData) {
             />
           )}
           <h2
-            className={`font-noto-urdo transition-all duration-[.4s] 
+            className={`font-noto-urdo transition-transform duration-[.4s] 
             ${
               getData()?.name === sorah.number
                 ? "-translate-y-10"
@@ -62,7 +62,7 @@ export default function LoopingData({ data, loc }: LoopingData) {
             {sorah.name}
           </h2>
           <div
-            className={`absolute bottom-0 right-0 w-full transition-all duration-[.4s]
+            className={`absolute bottom-0 right-0 w-full transition-transform duration-[.4s]
             ${
               getData()?.name === sorah.number
                 ? "-translate-y-[18px]"

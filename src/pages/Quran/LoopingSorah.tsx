@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
 import { LocalStorageData } from "../../context/localstrorage";
 import React from "react";
@@ -16,18 +16,19 @@ type LoopingSorahProps = {
     revelationType?: string | undefined;
     numberOfAyahs?: string | undefined;
     ayahs?: [];
-    number?: string | undefined;
+    number?: string;
   };
 };
 
 // Component
-export default function LoopingSorah({ data }: LoopingSorahProps) {
+export const LoopingSorah = memo(({ data }: LoopingSorahProps) => {
   // uuseState
   const [show, setShow] = useState(false);
   const [tafsirAyaStatus, setTafsirAyaStatus] = useState(false);
   const { name, revelationType, numberOfAyahs, ayahs, number } = data;
   const { setDataStorage, getData } = useContext(LocalStorageData);
   const [ayaAndSorah, setAyaAndSorah] = useState({});
+  const [spanHover, setSpanHover] = useState(0);
 
   //handleClick
   const handleClick = (
@@ -57,7 +58,7 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
   }, []);
 
   // ayaClick
-  const ayaClick = (number: string | undefined, numberInSurah: never) => {
+  const ayaClick = (number: string, numberInSurah: string) => {
     setAyaAndSorah({ number, numberInSurah });
     setTafsirAyaStatus(true);
   };
@@ -68,27 +69,33 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
     return (
       <React.Fragment key={numberInSurah}>
         <span
-          className={`text-[28px] font-bold leading-[2.4] transition-all duration-300 cursor-pointer  rounded-md
+          className={`text-[28px] font-bold leading-[2.4] transition-colors duration-300 cursor-pointer  rounded-md
           ${
             getData()?.aya === numberInSurah && getData()?.name === number
               ? "bg-[#d3ffe3] dark:bg-white dark:text-green-header this-aya"
               : "hover:bg-paige-color dark:hover:bg-slate-800"
           } 
           `}
-          onClick={() => ayaClick(number, numberInSurah)}
+          onClick={() => ayaClick(number as string, numberInSurah)}
         >
           {text}
         </span>
         <span
-          className="sorah-number text-green-header dark:text-dark-green font-normal cursor-pointer relative group"
-          onClick={() => handleClick(number, numberInSurah)}
+          className="sorah-number text-green-header dark:text-dark-green font-normal cursor-pointer relative"
+          onClick={() => {
+            handleClick(number, numberInSurah);
+          }}
+          onMouseMove={() => setSpanHover(+numberInSurah)}
+          onMouseLeave={() => setSpanHover(0)}
         >
-          <div className="absolute -top-12 w-[100px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <span className=" py-[2px] px-2 text-center rounded-lg bg-green-100 dark:bg-white">
-              أضغط للحفظ
-            </span>
-            <span className="save-span" />
-          </div>
+          {spanHover > 0 && spanHover === +numberInSurah && (
+            <div className="absolute -top-12 w-[100px]">
+              <span className="py-[2px] px-2 text-center rounded-lg bg-green-100 dark:bg-white">
+                أضغط للحفظ
+              </span>
+              <span className="save-span" />
+            </div>
+          )}
           {numberInSurah}
         </span>
       </React.Fragment>
@@ -97,7 +104,7 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
 
   // Return
   return (
-    <div className="p-5 overflow-hidden">
+    <div className="py-5 overflow-hidden">
       <ScrollToTop />
       {show && <PopUp />}
       <div className="bg-white dark:bg-slate-950 text-green-header dark:text-white text-center py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden">
@@ -117,4 +124,4 @@ export default function LoopingSorah({ data }: LoopingSorahProps) {
       </div>
     </div>
   );
-}
+});

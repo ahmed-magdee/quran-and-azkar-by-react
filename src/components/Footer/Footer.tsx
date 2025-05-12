@@ -1,18 +1,16 @@
 import { classes } from "../../data/styles";
 import LinksHeader from "../Header/LinksHeader";
-import Container from "../container/Container";
 import LoopingFooter from "./LoopingFooter";
 
 // Component
 export default function Footer() {
   // Return
   return (
-    <footer className="bg-[#f1f5f9] dark:bg-slate-900 pt-6 font-cairo text-center">
-      <Container styles="footer-container text-right max-w-6xl mx-auto">
+    <footer className="bg-white dark:bg-slate-900 pt-6 font-cairo">
+      <div className="container flex flex-col md:flex-row gap-5">
         {/* Links Footer */}
         <LoopingFooter />
-        {/* Exist Website */}
-        <div className={classes["footer-divs"]}>
+        <div className="w-full md:w-[calc(50%-10px)]">
           <h3 className="mb-4 text-green-header dark:text-dark-green text-center md:text-right">
             أقسام الموقع
           </h3>
@@ -21,7 +19,7 @@ export default function Footer() {
             classes={classes["header-links"]}
           />
         </div>
-      </Container>
+      </div>
       <p
         className={`md:text-right text-gray-400  bg-white dark:bg-slate-950 mt-6 px-[15px] py-5 border-t border-green-header flex items-center justify-center gap-2 flex-wrap`}
       >
