@@ -104,7 +104,7 @@ export const LoopingSorah = memo(({ data }: LoopingSorahProps) => {
 
   // Return
   return (
-    <div className="py-5 overflow-hidden">
+    <div className="py-5">
       <ScrollToTop />
       {show && <PopUp />}
       <div className="bg-white dark:bg-slate-950 text-green-header dark:text-white text-center py-3 rounded-md shadow-sorah-header dark:shadow-header-shadow border border-[#ccc] dark:border-dark-green min-h-[calc(100vh-(70px+40px))] overflow-hidden">
