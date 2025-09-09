@@ -2,7 +2,8 @@
 import LoadingAnimation from "../Animation/LoadingAnimation";
 import Container from "../container/Container";
 import LoopingData from "./LoopingData";
-import GetData from "../Get-Data/GetData";
+import { ErrorHandlingComponent } from "../ErrorHandlingComponent";
+import { useGetData } from "../../custom-hooks/useGetData";
 
 type SorahsFetchProps = {
   loc: string;
@@ -18,7 +19,7 @@ type Data = {
 // Component
 export default function SorahsFetch({ loc }: SorahsFetchProps) {
   // fetching data
-  const { data } = GetData(`https://api.alquran.cloud/v1/surah`, false);
+  const { data } = useGetData(`https://api.alquran.cloud/v1/surah`, false);
 
   // Loading
   if (data.loading) {
@@ -26,11 +27,19 @@ export default function SorahsFetch({ loc }: SorahsFetchProps) {
   }
 
   // Return
-  if (!data.loading && data.data.length != 0) {
-    return (
-      <Container styles="all-sorahs font-cairo relative py-10">
+  // if (!data.loading && data.data.length != 0) {
+  return (
+    <Container
+      styles={`${
+        !data.error ? "all-sorahs" : "flex items-center justify-center"
+      } font-cairo relative py-10 min-h-[calc(100vh-70px)]`}
+    >
+      {!data.error ? (
         <LoopingData data={data.data as unknown as Data} loc={loc} />
-      </Container>
-    );
-  }
+      ) : (
+        <ErrorHandlingComponent error={data.error} />
+      )}
+    </Container>
+  );
+  // }
 }

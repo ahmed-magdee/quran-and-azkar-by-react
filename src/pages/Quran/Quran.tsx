@@ -1,10 +1,10 @@
 import ScrollToTop from "../../components/ScrollToTop";
 import SorahsFetch from "../../components/Sorahs-fetch/SorahsFetch";
-import TitleDocument from "../../components/Title-Modify/TitleDocument";
 import ContainerSorahs from "../../components/container/ContainerSorahs";
+import { useTitleDocument } from "../../custom-hooks/useTitleDocument";
 
 export default function Quran() {
-  TitleDocument("القرآن الكريم");
+  useTitleDocument("القرآن الكريم");
 
   // Return
   return (

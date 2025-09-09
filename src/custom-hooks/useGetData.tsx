@@ -35,7 +35,7 @@ const initialState = {
   error: "",
 };
 
-export default function GetData(link: string, loc: boolean) {
+export function useGetData(link: string, loc: boolean) {
   // useState
   const [data, setData] = useState<DataStart>(initialState);
 

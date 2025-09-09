@@ -1,8 +1,8 @@
+import { useTitleDocument } from "../custom-hooks/useTitleDocument";
 import { information } from "../data/data";
-import TitleDocument from "./Title-Modify/TitleDocument";
 
 function Information() {
-  TitleDocument("التعليمات");
+  useTitleDocument("التعليمات");
 
   const informationLooping = information.map((one) => (
     <li key={one.id} className="">

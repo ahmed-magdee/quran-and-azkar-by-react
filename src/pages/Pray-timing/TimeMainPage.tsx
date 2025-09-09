@@ -1,15 +1,16 @@
 import { useState } from "react";
-import GetData from "../../components/Get-Data/GetData";
 import Container from "../../components/container/Container";
 import ContainerSorahs from "../../components/container/ContainerSorahs";
 import TimingHeader from "./TimingHeader";
 import LoadingAnimation from "../../components/Animation/LoadingAnimation";
 import ChooseTheCountry from "./ChooseTheCountry";
 import ShowThePrayTiming from "./ShowThePrayTiming";
-import TitleDocument from "../../components/Title-Modify/TitleDocument";
+import { ErrorHandlingComponent } from "../../components/ErrorHandlingComponent";
+import { useGetData } from "../../custom-hooks/useGetData";
+import { useTitleDocument } from "../../custom-hooks/useTitleDocument";
 
 export default function TimeMainPage() {
-  TitleDocument("توقيت الصلاة");
+  useTitleDocument("توقيت الصلاة");
   // useState
   const [selectValue, setSelectValue] = useState("alexandria");
   const theDay = new Date().getDate();
@@ -17,7 +18,7 @@ export default function TimeMainPage() {
   const theYear = new Date().getFullYear();
 
   // Fetching Data
-  const { data } = GetData(
+  const { data } = useGetData(
     `https://api.aladhan.com/v1/timingsByCity/${theDay}-${theMonth}-${theYear}?city=${selectValue}&country=egypt`,
     false
   );
@@ -38,9 +39,15 @@ export default function TimeMainPage() {
             selectValue={selectValue}
             setSelectValue={setSelectValue}
           />
-          <ShowThePrayTiming
-            time={data.data && data.data.timings && data.data.timings}
-          />
+          {!data.error ? (
+            <ShowThePrayTiming
+              time={data.data && data.data.timings && data.data.timings}
+            />
+          ) : (
+            <div className="mt-5">
+              <ErrorHandlingComponent error={data.error} />
+            </div>
+          )}
         </Container>
       </ContainerSorahs>
     </>

@@ -3,8 +3,9 @@ import LoadingAnimation from "../../components/Animation/LoadingAnimation";
 import ContainerSorahs from "../../components/container/ContainerSorahs";
 import { useParams } from "react-router-dom";
 import { LoopingSorah } from "./LoopingSorah";
-import GetData from "../../components/Get-Data/GetData";
-import TitleDocument from "../../components/Title-Modify/TitleDocument";
+import { ErrorHandlingComponent } from "../../components/ErrorHandlingComponent";
+import { useGetData } from "../../custom-hooks/useGetData";
+import { useTitleDocument } from "../../custom-hooks/useTitleDocument";
 
 type DataTypes = {
   name?: string | undefined;
@@ -18,13 +19,16 @@ type DataTypes = {
 
 // Component
 export default function Sorah() {
-  TitleDocument("القرآن الكريم");
+  useTitleDocument("القرآن الكريم");
 
   // useParams
   const { id } = useParams();
 
   // Fetching Data
-  const { data } = GetData(`https://api.alquran.cloud/v1/surah/${id}`, false);
+  const { data } = useGetData(
+    `https://api.alquran.cloud/v1/surah/${id}`,
+    false
+  );
 
   // Loading
   if (data.loading) {
@@ -34,8 +38,14 @@ export default function Sorah() {
   // Return
   return (
     <>
-      <ContainerSorahs styles="container">
-        <LoopingSorah data={data.data as DataTypes} />
+      <ContainerSorahs
+        styles={`container ${data.error && "flex items-center justify-center"}`}
+      >
+        {!data.error ? (
+          <LoopingSorah data={data.data as DataTypes} />
+        ) : (
+          <ErrorHandlingComponent error={data.error} />
+        )}
       </ContainerSorahs>
     </>
   );

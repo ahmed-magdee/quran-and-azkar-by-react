@@ -26,7 +26,7 @@ export const LoopingSorah = memo(({ data }: LoopingSorahProps) => {
   const [show, setShow] = useState(false);
   const [tafsirAyaStatus, setTafsirAyaStatus] = useState(false);
   const { name, revelationType, numberOfAyahs, ayahs, number } = data;
-  const { setDataStorage, getData } = useContext(LocalStorageData);
+  const { setDataStorage, useGetData } = useContext(LocalStorageData);
   const [ayaAndSorah, setAyaAndSorah] = useState({});
   const [spanHover, setSpanHover] = useState(0);
 
@@ -48,7 +48,7 @@ export const LoopingSorah = memo(({ data }: LoopingSorahProps) => {
 
   // useEffect
   useEffect(() => {
-    if (getData()?.aya) {
+    if (useGetData()?.aya) {
       const ayaToScroll = document.querySelector(".this-aya");
       ayaToScroll?.scrollIntoView({
         block: "center",
@@ -71,7 +71,7 @@ export const LoopingSorah = memo(({ data }: LoopingSorahProps) => {
         <span
           className={`text-[28px] font-bold leading-[2.4] transition-colors duration-300 cursor-pointer  rounded-md
           ${
-            getData()?.aya === numberInSurah && getData()?.name === number
+            useGetData()?.aya === numberInSurah && useGetData()?.name === number
               ? "bg-[#d3ffe3] dark:bg-white dark:text-green-header this-aya"
               : "hover:bg-paige-color dark:hover:bg-slate-800"
           } 

@@ -3,10 +3,10 @@ import Doaa from "./Doaa";
 import SectionForm from "./SectionForm";
 import Footer from "../../components/Footer/Footer";
 import LandingPageTwo from "./LandingPageTwo";
-import TitleDocument from "../../components/Title-Modify/TitleDocument";
+import { useTitleDocument } from "../../custom-hooks/useTitleDocument";
 
 export default function Home() {
-  TitleDocument("قرآن وأذكار");
+  useTitleDocument("قرآن وأذكار");
   return (
     <>
       <ScrollToTop />

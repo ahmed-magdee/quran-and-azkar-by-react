@@ -3,7 +3,7 @@ import { createContext, useState, ReactNode, useEffect } from "react";
 const defaultContextValue: LocalStorageData = {
   dataStorage: {},
   setDataStorage: () => {},
-  getData: () => null,
+  useGetData: () => null,
 };
 
 // LocalDataProviderProps
@@ -31,7 +31,7 @@ interface LocalStorageData {
     aya?: string;
   };
   setDataStorage: (data: object) => void;
-  getData: () => SorahData | null;
+  useGetData: () => SorahData | null;
 }
 
 // CreateContext
@@ -49,8 +49,8 @@ export const LocalDataProvider = ({ children }: LocalDataProviderProps) => {
     }
   }, [dataStorage]);
 
-  // getDataStorage
-  function getData(): SorahData | null {
+  // useGetDataStorage
+  function useGetData(): SorahData | null {
     const storedDataString = window.localStorage.getItem("sorah-data");
 
     if (storedDataString) {
@@ -62,7 +62,9 @@ export const LocalDataProvider = ({ children }: LocalDataProviderProps) => {
 
   // Return
   return (
-    <LocalStorageData.Provider value={{ dataStorage, setDataStorage, getData }}>
+    <LocalStorageData.Provider
+      value={{ dataStorage, setDataStorage, useGetData }}
+    >
       {children}
     </LocalStorageData.Provider>
   );
